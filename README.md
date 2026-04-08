@@ -92,12 +92,12 @@ All experiments run on Google Colab Pro. Follow the notebooks (in any team membe
 
 ## References
 
-- Qin et al. "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs" (2024)
-- Schick et al. "Toolformer: Language Models Can Teach Themselves to Use Tools" (2023)
-- Patil et al. "Gorilla: Large Language Model Connected with Massive APIs" (2023)
-- Feng et al. "CodeBERT: A Pre-Trained Model for Programming and Natural Languages" (2020)
 - Khosla et al. "Supervised Contrastive Learning" (2020)
 - Karpukhin et al. "Dense Passage Retrieval for Open-Domain Question Answering" (2020)
+- Xiong et al. "Approximate Nearest Neighbor Negative Contrastive Estimation for Dense Text Retrieval" (2021)
+- Qin et al. "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs" (2024)
+- Ramesh et al. "ProTIP: Progressive Tool Retrieval Improves Planning" (2023)
+- Du et al. "AnyTool: Self-Reflective, Hierarchical Agents for Large-Scale API Calls" (2024)
 
 ## License
 

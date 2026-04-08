@@ -1,0 +1,6 @@
+[submodule "MMAI-SP26"]
+	path = MMAI-SP26
+	url = https://github.com/arthurdls/MMAI-SP26
+[submodule "MMAI-Spring2026"]
+	path = MMAI-Spring2026
+	url = https://github.com/Dmazard/MMAI-Spring2026

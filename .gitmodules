@@ -4,3 +4,6 @@
 [submodule "Dylan-MMAI-SP26"]
 	path = Dylan-MMAI-SP26
 	url = https://github.com/Dmazard/MMAI-Spring2026
+[submodule "Michael-MMAI-SP26"]
+	path = Michael-MMAI-SP26
+	url = https://github.com/michaelyserrano/mmai

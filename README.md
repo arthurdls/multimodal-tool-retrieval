@@ -58,28 +58,42 @@ Category-level and DFSDT negatives reduce R@1 by ~10 points vs. random, confirmi
 
 ```
 multimodal-tool-retrieval/
-├── README.md                ← this file
+├���─ README.md                ← this file
 ├── .gitignore
 ├── .gitmodules
+├── project/                 ← all project code, experiments, and results
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── data/                ← data loading and negative mining
+│   ├── models/              ← embedding model (OpenAI API + cache)
+│   ├── retrieval/           ← FAISS index and top-k retrieval
+│   ├── evaluation/          ← Recall@k, MRR metrics
+│   ├── notebooks/           ← experiment notebooks (run in order)
+│   ├── results_baseline.json
+│   ├── results_hard_negatives.json
+│   └── recall_at_5_ablation.png
 ├── Arthur-MMAI-SP26/        ← Arthur's individual repo (submodule)
 ├── Dylan-MMAI-SP26/         ← Dylan's individual repo (submodule)
 └── Michael-MMAI-SP26/       ← Michael's individual repo (submodule)
 ```
 
-Each team member's submodule contains their homework assignments and a `project/` directory with shared experiment code (data loaders, models, evaluation, notebooks).
+All project work lives in [`project/`](./project/). Each team member's submodule contains their individual homework assignments.
 
 ## Running the Experiments
 
-All experiments run on Google Colab Pro. Follow the notebooks (in any team member's `project/notebooks/`) in order:
+All experiments run on Google Colab Pro. Follow the notebooks in [`project/notebooks/`](./project/notebooks/) in order:
 
-1. **`01_index_apis.ipynb`** — Pre-compute OpenAI embeddings for all API docs. Run once; results are cached.
-2. **`02_baseline_eval.ipynb`** — Full-corpus baseline retrieval evaluation (Recall@k, MRR).
-3. **`03_hard_negative_eval.ipynb`** — Hard-negative ablation across random, category-sibling, and DFSDT failure-path conditions.
+1. **[01_index_apis.ipynb](project/notebooks/01_index_apis.ipynb)** — Pre-compute OpenAI embeddings for all API docs. Run once; results are cached.
+2. **[02_baseline_eval.ipynb](project/notebooks/02_baseline_eval.ipynb)** — Full-corpus baseline retrieval evaluation (Recall@k, MRR).
+3. **[03_hard_negative_eval.ipynb](project/notebooks/03_hard_negative_eval.ipynb)** — Hard-negative ablation across random, category-sibling, and DFSDT failure-path conditions.
 
 ### Requirements
 
-- Google Colab Pro (or any GPU/CPU runtime)
-- OpenAI API key (set as Colab secret `OPENAI_API_KEY`)
+```
+cd project && pip install -r requirements.txt
+```
+
+- OpenAI API key (set as env var `OPENAI_API_KEY` or Colab secret)
 - ToolBench dataset (`toolllama_G123_dfs_eval.json` + `toolenv/tools/`)
 
 ## Team Repositories

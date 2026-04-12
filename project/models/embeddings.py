@@ -14,11 +14,15 @@ MODEL = "text-embedding-3-small"
 client = OpenAI()
 
 
-def format_api_string(api: dict) -> str:
-    """Format an API entry into an embedding-ready string.
-
-    Format: "[category] > [tool_name]: [name] — [description] | Parameters: [param1, param2, ...]"
-    """
+def format_api_string(api: dict, mode: str = "full") -> str:
+    """Format an API entry into an embedding-ready string."""
+    if mode == "name_desc":
+        return f"{api['name']}: {api.get('description', '')}".strip()
+    if mode == "desc_only":
+        return (api.get("description") or "(no description)").strip()
+    if mode == "json":
+        import json as _json
+        return _json.dumps({k: api.get(k) for k in ("name", "description", "category", "tool_name", "parameters")})
     params = ", ".join(p.get("name", "") for p in api.get("parameters", []))
     return (
         f"{api['category']} > {api['tool_name']}: {api['name']} — "

@@ -14,6 +14,13 @@ MODEL = "text-embedding-3-small"
 client = OpenAI()
 
 
+def format_api_code(api: dict) -> str:
+    """Format an API as a Python-style typed function signature."""
+    name = api.get("name", "unknown").replace(" ", "_").lower()
+    params = ", ".join(f"{p.get('name', 'arg')}: {p.get('type', 'str')}" for p in api.get("parameters", []))
+    return f"def {name}({params}) -> dict: ..."
+
+
 def format_api_string(api: dict, mode: str = "full") -> str:
     """Format an API entry into an embedding-ready string."""
     if mode == "name_desc":
